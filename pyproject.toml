@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "muscriptor-plus"
+version = "0.1.0"
+description = "Dynamics, live feel and consensus decoding on top of MuScriptor"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "muscriptor>=0.4.0",
+    "numpy>=1.24",
+    "mido>=1.3",
+    "torch>=2.0",
+    "typer>=0.10",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7.0"]
+
+[project.scripts]
+muscriptor-plus = "muscriptor_plus.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-m 'not slow'"
+markers = [
+    "slow: exercises the real model (needs weights, minutes on CPU)",
+]

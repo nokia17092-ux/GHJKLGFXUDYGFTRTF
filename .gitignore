@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+
+# Model weights are large and downloaded, never committed
+models/*/
+models/*.log
+*.safetensors
+*.ckpt
+
+# Local scratch
+.agent_tmp/
